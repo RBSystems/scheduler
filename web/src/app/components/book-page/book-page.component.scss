@@ -25,7 +25,7 @@ app-time {
 }
 
 app-time {
-  margin-right: 10%;
+  margin-right: 30px;
 }
 
 .main-button {
@@ -44,7 +44,7 @@ app-time {
 .book-window-card {
   background-color: var(--booking-window-background-color);
   height: 80%;
-  width: 100%;
+  width: 90%;
   margin-top: 2%;
   margin-left: 2%;
   font-family: var(--main-font);
@@ -74,7 +74,7 @@ app-time {
 
 .event-footer {
   width: 100%;
-  padding-top: 14%;
+  padding-top: 12%;
   padding-left: 25px;
   margin-top: 5%;
   color: var(--booking-select-color);
@@ -113,6 +113,10 @@ mat-placeholder {
   background-color: var(--footer-background-color);
 }
 
+mat-toolbar-row {
+  padding-right: 30px;
+}
+
 .footer-spacer-left {
   flex: 1 1 auto;
 }
@@ -122,7 +126,6 @@ mat-placeholder {
   color: var(--button-text-color);
   border: 1px solid var(--button-border-color);
   margin-left: 15px;
-  margin-right: 15px;
   font-size: 20px;
   font-style: bold;
   font-family: var(--button-font);

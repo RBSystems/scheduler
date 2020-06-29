@@ -4,21 +4,28 @@
 }
 
 .title-card {
-  height: 90%;
-  width: 90%;
-  padding: 10%;
-  margin-top: 15%;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  margin-top: 55px;
+  padding-top: 50px;
+  margin-left: 30px;
   background-color: transparent;
   font-family: var(--main-font);
+  transition: none !important;
+  box-shadow: none !important;
 }
 
 .room-title {
   color: var(--room-title-color);
   font-size: 48px;
+  line-height: 100%;
 }
 
 .room-availability {
   font-size: 64px;
+  line-height: 110%;
 }
 
 .grid-tile-time {
@@ -30,6 +37,10 @@
   background-color: var(--footer-background-color);
 }
 
+mat-toolbar-row {
+  padding-right: 30px;
+}
+
 .footer-spacer-left {
   flex: 1 1 auto;
 }
@@ -39,7 +50,6 @@
   color: var(--button-text-color);
   border: 1px solid var(--button-border-color);
   margin-left: 15px;
-  margin-right: 15px;
   font-size: 20px;
   font-style: bold;
   font-family: var(--button-font);
@@ -59,17 +69,22 @@
 app-time {
   width: 100%;
   height: 100%;
-  margin-right: 10%;
+  margin-right: 30px;
 }
 
 .current-event {
   width: 100%;
-  height: 100%;
+  height: 75%;
   color: var(--meeting-title-color);
   float: left;
   position: relative;
   font-weight: 500;
   font-size: 36px;
   font-family: var(--main-font);
-  padding: 5%;
+  padding-left: 30px;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

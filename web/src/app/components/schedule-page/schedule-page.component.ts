@@ -50,6 +50,10 @@ export class SchedulePageComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  routeToBook(): void {
+    this.router.navigate(['/book']);
+  }
+
   requestHelp(): void {
     const dialog = this.dialogRef.open(HelpDialogComponent, {});
   }

@@ -2,8 +2,8 @@
   [ngStyle]="{'background-color': status.unoccupied? 'var(--room-available-color)' : 'var(--room-unavailable-color)'}">
 </mat-toolbar>
 
-<mat-grid-list cols="5" rowHeight="117.6px">
-  <mat-grid-tile colspan="3" rowspan="2" class="grid-tile-status">
+<mat-grid-list cols="20" rowHeight="117.6px">
+  <mat-grid-tile colspan="12" rowspan="2" class="grid-tile-status">
     <mat-card class="title-card">
       <mat-card-title class="room-title">{{ status.roomName }}</mat-card-title>
       <mat-card-content class="room-availability"
@@ -13,11 +13,11 @@
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
-  <mat-grid-tile colspan="2" rowspan="2" class="grid-tile-time">
+  <mat-grid-tile colspan="8" rowspan="2" class="grid-tile-time">
     <app-time></app-time>
   </mat-grid-tile>
-  <mat-grid-tile colspan="5" class="grid-tile-event">
-    <span class="current-event" *ngIf="status.unoccupied == false">{{ currentEvent.title }}</span>
+  <mat-grid-tile colspan="13" class="grid-tile-event">
+    <span class="current-event" *ngIf="!status.unoccupied">{{ currentEvent.title }}</span>
   </mat-grid-tile>
 </mat-grid-list>
 

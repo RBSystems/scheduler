@@ -7,8 +7,8 @@
   <span class="schedule-title">{{ status.roomName }} Schedule</span>
 </mat-toolbar>
 
-<mat-grid-list cols="5" rowHeight="117.6px">
-  <mat-grid-tile colspan="3" rowspan="3">
+<mat-grid-list cols="20" rowHeight="117.6px">
+  <mat-grid-tile colspan="13" rowspan="3">
     <cdk-virtual-scroll-viewport itemSize="3" class="schedule-scroll-list">
       <span *ngIf="status.emptySchedule === false; else elseBlock">
         <app-schedule-list *cdkVirtualFor="let event of eventList" [event]="event"></app-schedule-list>
@@ -18,15 +18,21 @@
       </ng-template>
     </cdk-virtual-scroll-viewport>
   </mat-grid-tile>
-  <mat-grid-tile colspan="2" rowspan="2">
+  <mat-grid-tile colspan="7" rowspan="2">
     <app-time></app-time>
   </mat-grid-tile>
-  <mat-grid-tile colspan="2" rowspan="1"></mat-grid-tile>
+  <mat-grid-tile colspan="7" rowspan="1"></mat-grid-tile>
 </mat-grid-list>
 
 <mat-toolbar class="footer">
   <mat-toolbar-row>
     <span class="footer-spacer-left"></span>
+    <div *ngIf="status.displayBookNow">
+      <button mat-stroked-button class="footer-button" (click)="routeToBook()">
+        <mat-icon svgIcon="Plus" class="button-icon"></mat-icon>
+        <span>BOOK NOW</span>
+      </button>
+    </div>
     <div *ngIf="status.displayHelp">
       <button mat-stroked-button class="footer-button" (click)="requestHelp()">
         <mat-icon svgIcon="Help" class="help-icon"></mat-icon>
