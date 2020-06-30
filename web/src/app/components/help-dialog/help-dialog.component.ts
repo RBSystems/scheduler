@@ -13,7 +13,7 @@ export class HelpDialogComponent implements OnInit {
   constructor(public mainRef: MatDialogRef<HelpDialogComponent>,
     private dataService: DataService,
     public confirmRef: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: string){}
+    @Inject(MAT_DIALOG_DATA) public data: any){}
 
   ngOnInit() {
 
@@ -28,7 +28,7 @@ export class HelpDialogComponent implements OnInit {
 
     //actually send the request
     let requestStatus = true;
-    this.dataService.sendHelpRequest(this.data).subscribe(
+    this.dataService.sendHelpRequest(this.data.deviceName).subscribe(
       data => {
         requestStatus = true;
       },

@@ -4,12 +4,17 @@
         
         
       <div mat-dialog-content class="text">
-        <p *ngIf="!isAfterHours()">
-              Please call AV Support at 801-422-7671 for help, or request help by pressing <i>Request Help</i> to send support staff to you.
-          </p>
-          <p *ngIf="isAfterHours()">
-              No technicians are currently available. For emergencies please call 801-422-7671.
-          </p>
+        <div *ngIf="!isAfterHours()">
+            <p *ngIf="data.helpMsg == ''">
+                Please call AV Support at 801-422-7671 for help, or request help by pressing <i>Request Help</i> to send support staff to you.
+            </p>
+            <p *ngIf="data.helpMsg != ''">
+                {{ data.helpMsg }}
+            </p>
+        </div>
+        <p *ngIf="isAfterHours()">
+            No technicians are currently available. For emergencies please call 801-422-7671.
+        </p>
       </div>
 
       <div mat-dialog-actions class="items secondary-theme">
@@ -28,14 +33,4 @@
       </div>
         
     </div>
-
-    <!-- <div>
-        <div class="text">A technician has been dispatched to this room to provide support.</div>
-        <div class="text">Please call AV Support at 801-422-7671 for questions.</div>
-        <div mat-dialog-actions class="items secondary-theme">
-            <button mat-raised-button color="warn" (click)="cancel()" press="cancel()">
-              Okay
-            </button>
-          </div>
-    </div> -->
 </div>

@@ -84,7 +84,12 @@ export class BookPageComponent implements OnInit {
   }
 
   requestHelp(): void {
-    const dialog = this.dialogRef.open(HelpDialogComponent, {});
+    const dialog = this.dialogRef.open(HelpDialogComponent, {
+      data: {
+        deviceName: this.status.deviceName,
+        helpMsg: this.status.helpMessage
+      }
+    });
   }
 
   saveEventData(): void {
@@ -128,7 +133,7 @@ export class BookPageComponent implements OnInit {
   checkEndTime(startId: number, endId: number): number {
     if (endId == undefined) return (startId + 1);
     if (startId >= endId) return (startId + 1);
-    if (endId > startId + 4) return (startId + 1); // Only allow a meeting to be max 2 hours
+    if (endId > startId + (2 * this.status.meetingMax)) return (startId + 1); // Limit the meeting to the configured max time
     for (let i = startId + 1; i < endId; i++) {
       if (!this.timeIncrements[i].validEnd) return (startId + 1);
     }
@@ -143,7 +148,7 @@ export class BookPageComponent implements OnInit {
   checkStartTime(startId: number, endId: number): number {
     if (startId == null) return (endId - 1);
     if (startId >= endId) return (endId - 1);
-    if (startId < endId - 4) return (endId - 1); // Only allow a meeting to be max 2 hours
+    if (startId < endId - (2 * this.status.meetingMax)) return (endId - 1); // Limit the meeting to the configured max time
     for (let i = startId + 1; i < endId; i++) {
       if (!this.timeIncrements[i].validStart) return (endId - 1);
     }

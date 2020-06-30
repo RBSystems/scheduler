@@ -12,6 +12,8 @@ export class RoomStatus {
   displayBookNow: boolean;
   displayTitle: boolean;
   displayHelp: boolean;
+  meetingMax: number;
+  helpMessage: string;
 }
 
 export class OutputEvent {
@@ -58,7 +60,9 @@ export class DataService {
       emptySchedule: false,
       displayBookNow: true,
       displayTitle: true,
-      displayHelp: true
+      displayHelp: true,
+      meetingMax: 24,
+      helpMessage: ""
     };
 
     this.getConfig();
@@ -131,6 +135,11 @@ export class DataService {
         this.status.displayBookNow = this.config["canCreateEvents"];
         this.status.displayTitle = this.config["displayMeetingTitle"];
         this.status.displayHelp = this.config["canRequestHelp"];
+        this.status.meetingMax = this.config["meetingMaxLength"];
+        if (this.status.meetingMax == 0) {
+          this.status.meetingMax = 24;
+        }
+        this.status.helpMessage = this.config["helpMessage"];
       },
       err => {
         setTimeout(() => {

@@ -22,10 +22,12 @@ type Config struct {
 	ImageURL    string `json:"image-url"`
 	StyleURL    string `json:"style-url"`
 
-	// functionality
-	CanCreateEvents     bool `json:"canCreateEvents"`
-	DisplayMeetingTitle bool `json:"displayMeetingTitle"`
-	CanRequestHelp      bool `json:"canRequestHelp"`
+	// customization
+	CanCreateEvents     bool   `json:"canCreateEvents"`
+	DisplayMeetingTitle bool   `json:"displayMeetingTitle"`
+	CanRequestHelp      bool   `json:"canRequestHelp"`
+	MeetingMaxLength    int    `json:"meetingMaxLength"`
+	HelpMessage         string `json:"helpMessage"`
 
 	// how to get events - from one of our calendars (gsuite, exchange, etc.)
 	CalendarURL string `json:"calendarURL"`
